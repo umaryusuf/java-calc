@@ -1,15 +1,24 @@
 import javax.swing.*;
 import java.awt.event.*;
 
-public class Calculator {
-
+public class Calculator extends JFrame implements ActionListener {
+	private JPanel panel;
+	private JTextArea output;
+	private JButton addBtn, subtractBtn, devideBtn, timesBtn;
+	
 	public Calculator() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		new Calculator();
+	}
 
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		
 	}
 
 }
