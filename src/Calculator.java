@@ -9,8 +9,18 @@ public class Calculator extends JFrame implements ActionListener {
 	public Calculator() {
 		panel = new JPanel();
 		
-		
 		output = new JTextArea(3, 22);
+		
+		addBtn = new JButton("+");
+		subtractBtn = new JButton("-");
+		devideBtn = new JButton("x");
+		timesBtn = new JButton("/");
+		
+		addBtn.addActionListener(this);
+		subtractBtn.addActionListener(this);
+		devideBtn.addActionListener(this);
+		timesBtn.addActionListener(this);
+		
 		panel.add(output);
 		
 		this.add(panel);
@@ -21,7 +31,6 @@ public class Calculator extends JFrame implements ActionListener {
 	}
 
 	public static void main(String[] args) {
-		
 		new Calculator();
 	}
 
