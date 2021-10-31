@@ -3,40 +3,39 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-class Calculator extends JFrame implements ActionListener 
-{
-    JPanel panel,
-	JButton add,subtract,multiply,divide;
-    JTextArea output;
-    JLabel result,enter1,enter2;
-    
-    Calculator()
-    {
-        setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
-        
-        output = new JTextArea(13, 20);
-        
-        
-    }
-    
-        
-	public static void main(String args[])
-	{
-	    Calculator ob = new Calculator();
-	    ob.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    ob.setTitle("Calculator");
-	    ob.setVisible(true);
-	    ob.setSize(350,500);
-	}
-
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+public class Calculator extends JFrame implements ActionListener {
+	private JPanel panel;
+	private JTextArea output;
+	private JButton addBtn, subtractBtn, devideBtn, timesBtn;
 	
+	public Calculator() {
+		panel = new JPanel();
+		
+		output = new JTextArea(3, 22);
+		
+		addBtn = new JButton("+");
+		subtractBtn = new JButton("-");
+		devideBtn = new JButton("x");
+		timesBtn = new JButton("/");
+		
+		addBtn.addActionListener(this);
+		subtractBtn.addActionListener(this);
+		devideBtn.addActionListener(this);
+		timesBtn.addActionListener(this);
+		
+		panel.add(output);
+		
+		this.add(panel);
+		this.setTitle("Calculator");
+		this.setSize(300, 400);
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	public static void main(String[] args) {
+		new Calculator();
+	}
+
 	private void addItem(JPanel p, JComponent c, int x, int y, int width, int height, int align)
 	{
 		GridBagConstraints gc = new GridBagConstraints();
@@ -50,5 +49,11 @@ class Calculator extends JFrame implements ActionListener
 		gc.anchor = align;
 		gc.fill = GridBagConstraints.NONE;
 		p.add(c, gc);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
