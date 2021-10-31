@@ -1,5 +1,7 @@
-import javax.swing.*;
+
+import java.awt.*;
 import java.awt.event.*;
+import javax.swing.*;
 
 public class Calculator extends JFrame implements ActionListener {
 	private JPanel panel;
@@ -34,10 +36,24 @@ public class Calculator extends JFrame implements ActionListener {
 		new Calculator();
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		
-		
+	private void addItem(JPanel p, JComponent c, int x, int y, int width, int height, int align)
+	{
+		GridBagConstraints gc = new GridBagConstraints();
+		gc.gridx = x;
+		gc.gridy = y;
+		gc.gridwidth = width;
+		gc.gridheight = height;
+		gc.weightx = 100.0;
+		gc.weighty = 100.0;
+		gc.insets = new Insets(5, 5, 5, 5);
+		gc.anchor = align;
+		gc.fill = GridBagConstraints.NONE;
+		p.add(c, gc);
 	}
 
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 }
