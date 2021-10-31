@@ -6,7 +6,8 @@ import javax.swing.*;
 public class Calculator extends JFrame implements ActionListener {
 	private JPanel panel;
 	private JTextArea output;
-	private JButton addBtn, subtractBtn, devideBtn, timesBtn;
+	private JButton addBtn, subtractBtn, devideBtn, timesBtn, equalBtn, dotbtn;
+	private JButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0;
 	
 	public Calculator() {
 		panel = new JPanel();
