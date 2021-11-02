@@ -2,24 +2,42 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
 public class Calculator extends JFrame implements ActionListener {
-	private JPanel panel;
+	private JPanel mainPanel, firstPanel, secondPanel;
 	private JTextArea output;
-	private JButton addBtn, subtractBtn, devideBtn, timesBtn, equalBtn, dotBtn;
-	private JButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0;
+	private JButton addBtn, subtractBtn, devideBtn, timesBtn, equalBtn, dotBtn, percentBtn, clearBtn;
+	private JButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btn00, offBtn;
 	
 	public Calculator() {
-		panel = new JPanel();
+
+		mainPanel = new JPanel();
+		firstPanel = new JPanel();
+		secondPanel = new JPanel();
+		
+		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+		mainPanel.setBorder(new EmptyBorder(10, 0, 0, 0));
+		firstPanel.setLayout(new FlowLayout());
+		secondPanel.setLayout(new GridLayout(5, 4));
 		//panel.setLayout(new GridBagLayout());
-		output = new JTextArea(3, 22);
+		output = new JTextArea(1, 10);
+		output.setEditable(true);
+		output.setFont(new Font("Serif", Font.PLAIN, 35));
 		
 		addBtn = new JButton("+");
 		subtractBtn = new JButton("-");
-		devideBtn = new JButton("x");
-		timesBtn = new JButton("/");
+		devideBtn = new JButton("/");
+		timesBtn = new JButton("x");
 		equalBtn = new JButton("=");
 		dotBtn = new JButton(".");
+		
+		percentBtn = new JButton("%");
+		offBtn = new JButton("off");
+		btn00 = new JButton("00");
+		clearBtn = new JButton("C");
+		
+		offBtn.setPreferredSize(new Dimension(60, 60));
 		
 		btn1 = new JButton("1");
 		btn2 = new JButton("2");
@@ -50,15 +68,38 @@ public class Calculator extends JFrame implements ActionListener {
 		btn9.addActionListener(this);
 		btn0.addActionListener(this);
 		
-		panel.add(output);
-		panel.add(btn1);
-		panel.add(btn2);
-		panel.add(btn3);
-		panel.add(addBtn);
+		firstPanel.add(output);
 		
-		this.add(panel);
+		secondPanel.add(offBtn);
+		secondPanel.add(clearBtn);
+		secondPanel.add(percentBtn);
+		secondPanel.add(timesBtn);
+		
+		secondPanel.add(btn1);
+		secondPanel.add(btn2);
+		secondPanel.add(btn3);
+		secondPanel.add(devideBtn);
+		
+		secondPanel.add(btn4);
+		secondPanel.add(btn5);
+		secondPanel.add(btn6);
+		secondPanel.add(addBtn);
+		
+		secondPanel.add(btn7);
+		secondPanel.add(btn8);
+		secondPanel.add(btn9);
+		secondPanel.add(subtractBtn);
+		secondPanel.add(btn0);
+		secondPanel.add(dotBtn);
+		secondPanel.add(btn00);
+		secondPanel.add(equalBtn);
+		
+		mainPanel.add(firstPanel);
+        mainPanel.add(secondPanel);
+		
+		this.add(mainPanel);
 		this.setTitle("Calculator");
-		this.setSize(300, 400);
+		this.setSize(300, 350);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
