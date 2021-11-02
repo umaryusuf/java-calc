@@ -32,7 +32,7 @@ public class Calculator extends JFrame implements ActionListener {
 		dotBtn = new JButton(".");
 		
 		percentBtn = new JButton("%");
-		offBtn = new JButton("off");
+		offBtn = new JButton("Off");
 		btn00 = new JButton("00");
 		clearBtn = new JButton("C");
 		
