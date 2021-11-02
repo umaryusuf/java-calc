@@ -20,9 +20,8 @@ public class Calculator extends JFrame implements ActionListener {
 		mainPanel.setBorder(new EmptyBorder(10, 0, 0, 0));
 		firstPanel.setLayout(new FlowLayout());
 		secondPanel.setLayout(new GridLayout(5, 4));
-		//panel.setLayout(new GridBagLayout());
 		output = new JTextArea(1, 10);
-		output.setEditable(true);
+		output.setEditable(false);
 		output.setFont(new Font("Serif", Font.PLAIN, 35));
 		
 		addBtn = new JButton("+");
@@ -33,7 +32,7 @@ public class Calculator extends JFrame implements ActionListener {
 		dotBtn = new JButton(".");
 		
 		percentBtn = new JButton("%");
-		offBtn = new JButton("off");
+		offBtn = new JButton("Off");
 		btn00 = new JButton("00");
 		clearBtn = new JButton("C");
 		
@@ -106,21 +105,6 @@ public class Calculator extends JFrame implements ActionListener {
 
 	public static void main(String[] args) {
 		new Calculator();
-	}
-
-	private void addItem(JPanel p, JComponent c, int x, int y, int width, int height, int align)
-	{
-		GridBagConstraints gc = new GridBagConstraints();
-		gc.gridx = x;
-		gc.gridy = y;
-		gc.gridwidth = width;
-		gc.gridheight = height;
-		gc.weightx = 100.0;
-		gc.weighty = 100.0;
-		gc.insets = new Insets(5, 5, 5, 5);
-		gc.anchor = align;
-		gc.fill = GridBagConstraints.NONE;
-		p.add(c, gc);
 	}
 
 	@Override
